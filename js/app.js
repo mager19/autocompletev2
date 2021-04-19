@@ -1,3 +1,5 @@
+import * as ui from "./ui.js";
+
 //variables
 let input = document.querySelector("#title"),
 	valueInput;
@@ -7,6 +9,8 @@ input.addEventListener("keyup", () => {
 	valueInput = input.value;
 
 	if (valueInput.length > 2) {
-		console.log("mas de 2 teclas pulsadas");
+		ui.showContainer(valueInput);
+	} else {
+		ui.cleanContainer();
 	}
 });

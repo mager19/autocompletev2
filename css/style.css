@@ -1,3 +1,33 @@
 body {
 	background-color: #f9f9f9;
 }
+
+.complete {
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
+.item--filtered {
+	padding: 5px 0;
+}
+.highlight {
+	color: crimson;
+}
+.info {
+	padding-left: 1rem;
+}
+.info p {
+	color: #f9f9f9;
+	margin-bottom: 0 !important;
+}
+
+.info a {
+	color: #f9f9f9;
+	opacity: 0.7;
+}
+.top__bar {
+	background-color: #6aafe6;
+	color: #fff;
+	text-align: center;
+	padding: 5px;
+}
