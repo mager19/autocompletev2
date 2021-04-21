@@ -14,3 +14,5 @@ input.addEventListener("keyup", () => {
 		ui.cleanContainer();
 	}
 });
+
+document.addEventListener("click", ui.cleanContainer);

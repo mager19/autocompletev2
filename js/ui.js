@@ -1,14 +1,15 @@
 import filter from "./filter.js";
 
 let container = document.querySelector("#inputContainer"),
-	showComplete = document.querySelector(".complete");
+	showComplete = document.querySelector(".complete"),
+	input = document.querySelector("#title");
 
-function showContainer(valueInput) {
+async function showContainer(valueInput) {
 	//clean past results
 	showComplete.classList.remove("d-none");
 	container.appendChild(showComplete);
 
-	const filtered = filter(valueInput);
+	const filtered = await filter(valueInput);
 
 	showPredictions(filtered, valueInput);
 }
@@ -25,17 +26,20 @@ function showPredictions(filtered, valueInput) {
 		item.classList.add("item--filtered");
 		item.textContent = `${element.title}`;
 
-		let highlights = item.textContent.replace(
-			/valueInput/,
-			`<span>xxx</span>`
-		);
-
 		const regex = new RegExp(valueInput, "i");
 
 		item.innerHTML = item.textContent.replace(
 			regex,
 			`<span class="highlight">${valueInput}</span>`
 		);
+
+		item.addEventListener("click", (e) => {
+			if (element.code != "no-results") {
+				input.value = e.target.textContent;
+			} else {
+				input.value = "";
+			}
+		});
 
 		showComplete.appendChild(item);
 	});
